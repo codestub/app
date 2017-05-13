@@ -14,7 +14,9 @@ class PetsController extends Controller
      */
     public function index()
     {
-        //
+        $pets = Pet::active()->orderBy('created_at', 'desc')->paginate(12);
+
+        return $pets;
     }
 
     /**
@@ -25,7 +27,7 @@ class PetsController extends Controller
      */
     public function show(Pet $pet)
     {
-        //
+        return $pet;
     }
 
     /**
