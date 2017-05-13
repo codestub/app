@@ -18,6 +18,17 @@ class PetsController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Pet  $pet
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Pet $pet)
+    {
+        //
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -34,17 +45,6 @@ class PetsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Pet  $pet
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Pet $pet)
     {
         //
     }
