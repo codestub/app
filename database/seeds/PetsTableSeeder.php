@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-class DogsTableSeeder extends Seeder
+class PetsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,10 +12,10 @@ class DogsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('App\Dog');
+        $faker = Faker::create('App\Pet');
 
         for ($i = 0; $i < 100; $i++) {
-            DB::table('dogs')->insert([
+            DB::table('pets')->insert([
                 'breed' => $faker->randomElement($array = [
                     'Labrador',
                     'Bulldog',
@@ -51,7 +51,8 @@ class DogsTableSeeder extends Seeder
                 'lng' => $faker->longitude($min = -180, $max = 180),
                 'active' => $faker->boolean,
                 'created_at' => $faker->dateTimeThisYear($max = 'now', $timezone = date_default_timezone_get()),
-                'updated_at' => $faker->dateTimeThisMonth($max = 'now', $timezone = date_default_timezone_get())
+                'updated_at' => $faker->dateTimeThisMonth($max = 'now', $timezone = date_default_timezone_get()),
+                'user_id' => 1
             ]);
         }
     }
