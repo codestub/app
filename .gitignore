@@ -1,11 +1,14 @@
-/node_modules
+vendor/
+node_modules/
+npm-debug.log
+/.idea
 /public/hot
 /public/storage
 /storage/*.key
 /vendor
-/.idea
-/.vagrant
-Homestead.json
-Homestead.yaml
-npm-debug.log
+
+# Laravel
+bootstrap/cache/
+.env.*.php
+.env.php
 .env
