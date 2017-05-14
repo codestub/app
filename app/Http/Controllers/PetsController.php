@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PetsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,7 +53,27 @@ class PetsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate the form
+        $this->validate(request(), [
+            'breed' => 'required|string|min:10|max:50',
+            'description' => 'required|string|min:10|max:300',
+            'date-of-birth' => 'required|date|before:now',
+            'price' => 'required|integer|between:0,999999',
+            'males' => 'required|integer|between:0,101',
+            'females' => 'required|integer|between:0,101'
+        ]);
+        // Create the pet
+        Pet::create([
+            'breed' => request('breed'),
+            'description' => request('description'),
+            'date_of_birth' => request('date-of-birth'),
+            'price' => request('price'),
+            'males' => request('males'),
+            'females' => request('females'),
+            'user_id' => auth()->id()
+        ]);
+        // Redirect to the index page
+        return redirect('/pets');
     }
 
     /**
