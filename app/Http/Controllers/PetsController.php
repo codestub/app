@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewPetForm;
 use App\Pet;
 use Illuminate\Http\Request;
 
@@ -48,31 +49,13 @@ class PetsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param NewPetForm|Request $form
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NewPetForm $form)
     {
-        // Validate the form
-        $this->validate(request(), [
-            'breed' => 'required|string|min:10|max:50',
-            'description' => 'required|string|min:10|max:300',
-            'date-of-birth' => 'required|date|before:now',
-            'price' => 'required|integer|between:0,999999',
-            'males' => 'required|integer|between:0,101',
-            'females' => 'required|integer|between:0,101'
-        ]);
-        // Create the pet
-        Pet::create([
-            'breed' => request('breed'),
-            'description' => request('description'),
-            'date_of_birth' => request('date-of-birth'),
-            'price' => request('price'),
-            'males' => request('males'),
-            'females' => request('females'),
-            'user_id' => auth()->id()
-        ]);
-        // Redirect to the index page
+        $form->persist();
+
         return redirect('/pets');
     }
 
