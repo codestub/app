@@ -47,8 +47,6 @@ class PetsTableSeeder extends Seeder
                 'females' => $faker->randomNumber(1),
                 'date_of_birth' => $faker->dateTimeThisYear(),
                 'description' => $faker->text($maxNbChars = 100),
-                'lat' => $faker->latitude($min = -90, $max = 90),
-                'lng' => $faker->longitude($min = -180, $max = 180),
                 'active' => $faker->boolean,
                 'created_at' => $faker->dateTimeThisYear($max = 'now', $timezone = date_default_timezone_get()),
                 'updated_at' => $faker->dateTimeThisMonth($max = 'now', $timezone = date_default_timezone_get()),

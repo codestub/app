@@ -21,8 +21,6 @@ class CreatePetsTable extends Migration
             $table->integer('females');
             $table->date('date_of_birth');
             $table->string('description', 100);
-            $table->decimal('lat', 9, 6);
-            $table->decimal('lng', 9, 6);
             $table->boolean('active');
             $table->integer('user_id');
             $table->softDeletes();
