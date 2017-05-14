@@ -15,8 +15,8 @@
                     <textarea class="form-control" id="description" name="description" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="date-of-birth">Date of birth:</label>
-                    <input type="date" class="form-control" id="date-of-birth" name="date-of-birth" required>
+                    <label for="date_of_birth">Date of birth:</label>
+                    <input type="date" class="form-control" id="date-of-birth" name="date_of_birth" required>
                 </div>
                 <div class="form-group">
                     <label for="price">Price:</label>
@@ -34,6 +34,9 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
+
+            @include('layouts.errors')
+
         </div>
     </div>
 @endsection
