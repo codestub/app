@@ -15,7 +15,7 @@ class CreatePetsTable extends Migration
     {
         Schema::create('pets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('breed');
+            $table->string('breed', 30);
             $table->integer('price');
             $table->integer('males');
             $table->integer('females');
